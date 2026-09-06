@@ -1,0 +1,32 @@
+.viewport {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.diagonal {
+  position: absolute;
+  inset: -30% -18%;
+  display: flex;
+  align-items: center;
+  transform: rotate(-14deg);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3.4vw, 44px);
+  will-change: transform;
+}
+
+.phone {
+  flex-shrink: 0;
+  width: clamp(150px, 15vw, 220px);
+  height: auto;
+  border-radius: 22px;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.55);
+  transform: rotate(var(--rot)) translateY(var(--ty));
+  opacity: 0.9;
+}

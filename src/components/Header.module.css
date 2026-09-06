@@ -1,0 +1,187 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.header.scrolled {
+  background: rgba(17, 18, 20, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-block: 22px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta {
+  display: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cream);
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.cta:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-deep);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 2px;
+  color: var(--cream);
+}
+
+.toggleLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 40px;
+  text-align: left;
+}
+
+.toggleIcon {
+  position: relative;
+  width: 22px;
+  height: 14px;
+}
+
+.toggleIcon span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), top 0.35s ease, opacity 0.2s ease;
+}
+
+.toggleIcon span:first-child {
+  top: 0;
+}
+
+.toggleIcon span:last-child {
+  top: 12px;
+}
+
+.toggleIconOpen span:first-child {
+  top: 6px;
+  transform: rotate(45deg);
+}
+
+.toggleIconOpen span:last-child {
+  top: 6px;
+  transform: rotate(-45deg);
+}
+
+@media (min-width: 640px) {
+  .cta {
+    display: inline-block;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--bg-deep);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(96px, 14vh, 140px) var(--edge) 48px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.5s;
+}
+
+.overlayOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.overlayNav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.overlayLink {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 8vw, 5rem);
+  color: var(--cream);
+  padding-block: 10px;
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: color 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+.overlayOpen .overlayLink {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlayLink:hover {
+  color: var(--gold);
+}
+
+.overlayNum {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.overlayFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+}
+
+.overlaySocials {
+  display: flex;
+  gap: 24px;
+}
+
+.overlaySocials a:hover,
+.overlayFooter > a:hover {
+  color: var(--gold);
+}

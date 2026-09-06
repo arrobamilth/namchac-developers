@@ -1,0 +1,30 @@
+.footer {
+  position: relative;
+  z-index: 6;
+  background: var(--bg-deep);
+  color: var(--cream-dim);
+  padding-block: 26px;
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -40px 60px rgba(0, 0, 0, 0.4);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+}
+
+.logo {
+  font-family: var(--sans);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--gold);
+}
+
+.top:hover {
+  color: var(--gold);
+}

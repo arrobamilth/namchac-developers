@@ -1,0 +1,7 @@
+.img {
+  display: block;
+  width: clamp(220px, 30vw, 500px);
+  height: auto;
+  margin-block: clamp(-46px, -5.5vh, -14px);
+  filter: drop-shadow(0 10px 26px rgba(115, 86, 241, 0.4));
+}

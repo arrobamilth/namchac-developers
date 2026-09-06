@@ -1,0 +1,127 @@
+:root {
+  --bg: #111214;
+  --bg-elevated: #1a1c20;
+  --bg-deep: #08090a;
+  --cream: #ece7df;
+  --cream-dim: rgba(236, 231, 223, 0.62);
+  --purple: #7356f1;
+  --gold: #c9a44c;
+  --glow-green: #2ea36e;
+  --line: rgba(236, 231, 223, 0.12);
+
+  --display: 'Archivo Black', 'Arial Black', sans-serif;
+  --sans: 'Space Grotesk', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --container: 1240px;
+  --edge: clamp(20px, 5vw, 64px);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--cream);
+  font: 16px/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* cinematic film grain, sits above everything, never blocks interaction */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: var(--edge);
+}
+
+.kicker {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.accent-gold {
+  color: var(--gold);
+}
+
+.accent-purple {
+  color: var(--purple);
+}
+
+/* scroll-reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
