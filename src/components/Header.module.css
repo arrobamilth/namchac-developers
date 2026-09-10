@@ -8,7 +8,7 @@
 }
 
 .header.scrolled {
-  background: rgba(17, 18, 20, 0.82);
+  background: rgba(13, 23, 21, 0.82);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -30,7 +30,7 @@
 .cta {
   display: none;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--cream);
@@ -59,7 +59,7 @@
 
 .toggleLabel {
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   width: 40px;
@@ -141,6 +141,7 @@
   align-items: baseline;
   gap: 18px;
   font-family: var(--display);
+  font-weight: 800;
   font-size: clamp(2.4rem, 8vw, 5rem);
   color: var(--cream);
   padding-block: 10px;
@@ -162,7 +163,7 @@
 .overlayNum {
   font-family: var(--sans);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--gold);
 }
 

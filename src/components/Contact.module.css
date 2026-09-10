@@ -44,6 +44,7 @@
 
 .emailLink {
   font-family: var(--display);
+  font-weight: 700;
   font-size: clamp(1.2rem, 2.6vw, 1.9rem);
   border-bottom: 2px solid var(--gold);
   padding-bottom: 4px;

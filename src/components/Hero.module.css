@@ -8,103 +8,19 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: clamp(110px, 17vh, 170px);
+  padding-top: clamp(64px, 10vh, 120px);
   background: var(--bg);
-}
-
-.vignette {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: radial-gradient(
-    ellipse 62% 58% at 50% 78%,
-    var(--bg-elevated) 0%,
-    var(--bg) 68%
-  );
-  pointer-events: none;
-}
-
-.glow {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.glowGreen,
-.glowPurple {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  mix-blend-mode: screen;
-}
-
-.glowGreen {
-  left: 4%;
-  top: 12%;
-  width: clamp(280px, 34vw, 560px);
-  height: clamp(280px, 34vw, 560px);
-  background: radial-gradient(circle, rgba(46, 163, 110, 0.55) 0%, rgba(46, 163, 110, 0) 72%);
-}
-
-.glowPurple {
-  right: 2%;
-  bottom: 6%;
-  width: clamp(320px, 40vw, 640px);
-  height: clamp(320px, 40vw, 640px);
-  background: radial-gradient(circle, rgba(115, 86, 241, 0.55) 0%, rgba(115, 86, 241, 0) 72%);
-}
-
-.signature {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--sans);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: var(--cream-dim);
-  letter-spacing: 0.02em;
-}
-
-.signatureImg {
-  height: 1.9em;
-  width: auto;
-  margin-top: 0.15em;
 }
 
 .wordmark {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  line-height: 0.86;
-  margin-top: clamp(10px, 2vh, 20px);
-  user-select: none;
-}
-
-.wordmark span {
   display: block;
-  font-size: clamp(2.9rem, 9.5vw, 7.2rem);
-  color: var(--cream);
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
-
-
-.character {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: clamp(220px, min(31vw, 50vh), 550px);
-  filter: drop-shadow(0 40px 50px rgba(0, 0, 0, 0.55));
+  width: clamp(280px, 78vw, 980px);
+  height: auto;
+  margin: 0 auto;
+  user-select: none;
+  filter: drop-shadow(0 24px 46px rgba(0, 0, 0, 0.45));
 }
 
 .manifesto {
@@ -119,6 +35,7 @@
 
 .quoteMark {
   font-family: var(--display);
+  font-weight: 700;
   font-size: 2.6rem;
   line-height: 0.6;
   color: var(--gold);
@@ -151,7 +68,7 @@
 
 .badgeStat {
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: clamp(1.5rem, 2.6vw, 2rem);
   line-height: 1.1;
   color: var(--cream);
@@ -212,22 +129,6 @@
 @media (max-width: 640px) {
   .hero {
     padding-bottom: 36px;
-  }
-
-  .wordmark span {
-    font-size: clamp(2.2rem, 13vw, 3.2rem);
-  }
-
-  .wordmark img {
-    width: clamp(170px, 48vw, 280px);
-    margin-block: clamp(-18px, -3vh, -6px);
-  }
-
-  .character {
-    position: static;
-    transform: none;
-    margin: 12px auto 0;
-    width: clamp(190px, 56vw, 300px);
   }
 
   .manifesto,
