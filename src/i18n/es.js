@@ -49,6 +49,7 @@ export default {
     ],
   },
   contact: {
+    title: 'Escribenos',
     kicker: 'Iniciar un proyecto',
     titleLine1: 'Creemos',
     titleLine2Prefix: 'algo ',
@@ -56,6 +57,7 @@ export default {
     socials: 'Redes',
     basedIn: 'Ubicación',
     location: 'Remoto · Mundial',
+    whatsapp: 'WhatsApp',
   },
   footer: {
     rights: 'Todos los derechos reservados.',

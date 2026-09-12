@@ -49,6 +49,7 @@ export default {
     ],
   },
   contact: {
+    title: 'Write to us',
     kicker: 'Start a project',
     titleLine1: "Let's craft",
     titleLine2Prefix: 'something ',
@@ -56,6 +57,7 @@ export default {
     socials: 'Socials',
     basedIn: 'Based in',
     location: 'Remote · Worldwide',
+    whatsapp: 'WhatsApp',
   },
   footer: {
     rights: 'All rights reserved.',

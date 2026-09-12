@@ -18,10 +18,28 @@ export default function Contact() {
           </h2>
         </Reveal>
 
+       
+
         <Reveal delay={150} className={styles.row}>
-          <a href="mailto:namchacfilms@gmail.com" className={styles.emailLink}>
-            namchacfilms@gmail.com
-          </a>
+          <div>
+            <p className={styles.metaLabel}>{t('contact.title')}</p>
+            <a href="mailto:namchacfilms@gmail.com" className={styles.emailLink}>
+              namchacfilms@gmail.com
+            </a>
+            <br></br>
+            <br></br>
+            <div>
+              <a
+              href="https://wa.me/573017644970"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.whatsapp}
+            >
+              <ion-icon name="logo-whatsapp" aria-hidden="true" />
+              {t('contact.whatsapp')}
+            </a>
+            </div>
+          </div>
 
           <div className={styles.meta}>
             <div>
