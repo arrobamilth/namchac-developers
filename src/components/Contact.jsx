@@ -27,7 +27,6 @@ export default function Contact() {
               namchacfilms@gmail.com
             </a>
             <br></br>
-            <br></br>
             <div>
               <a
               href="https://wa.me/573017644970"
