@@ -1,7 +1,10 @@
+import { useLanguage } from '../i18n/index.jsx'
 import wordmarkLockup from '../assets/wordmark-lockup.png'
 import styles from './Hero.module.css'
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section id="home" className={styles.hero}>
       <img
@@ -12,7 +15,7 @@ export default function Hero() {
 
       <div className={styles.manifesto}>
         <span className={styles.quoteMark} aria-hidden="true">&ldquo;</span>
-        <p>NamChac transformed our ideas into a polished digital experience.</p>
+        <p>{t('hero.manifesto')}</p>
       </div>
 
       <div className={styles.badge}>
@@ -21,8 +24,8 @@ export default function Hero() {
             <span key={i}>{s}</span>
           ))}
         </div>
-        <p className={styles.badgeStat}>+1 Years</p>
-        <p className={styles.badgeLabel}>Experience</p>
+        <p className={styles.badgeStat}>{t('hero.years')}</p>
+        <p className={styles.badgeLabel}>{t('hero.experience')}</p>
       </div>
 
       <a href="#about" className={styles.scrollCue} aria-label="Scroll to About">

@@ -1,7 +1,10 @@
-import Reveal from './Reveal'
+import { useLanguage } from '../i18n/index.jsx'
+import Reveal from './Reveal.jsx'
 import styles from './Projects.module.css'
 
 export default function Projects() {
+  const { t } = useLanguage()
+
   return (
     <section id="projects" className={styles.projects}>
       <video
@@ -18,8 +21,8 @@ export default function Projects() {
 
       <div className={`container ${styles.inner}`}>
         <Reveal className={styles.heading}>
-          <p className="kicker">Get started</p>
-          <h2 className={styles.title}>Projects</h2>
+          <p className="kicker">{t('projects.kicker')}</p>
+          <h2 className={styles.title}>{t('projects.title')}</h2>
         </Reveal>
       </div>
     </section>

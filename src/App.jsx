@@ -1,14 +1,17 @@
-import Header from './components/Header'
-import Hero from './components/Hero'
-import Projects from './components/Projects'
-import ProjectCase from './components/ProjectCase'
-import About from './components/About'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { useLanguage } from './i18n/index.jsx'
+import Header from './components/Header.jsx'
+import Hero from './components/Hero.jsx'
+import Projects from './components/Projects.jsx'
+import ProjectCase from './components/ProjectCase.jsx'
+import About from './components/About.jsx'
+import Contact from './components/Contact.jsx'
+import Footer from './components/Footer.jsx'
 import nanaLanding from './assets/nana-landing.png'
 import nanaDashboard from './assets/nana-dashboard.png'
 
 function App() {
+  const { t } = useLanguage()
+
   return (
     <>
       <Header />
@@ -18,10 +21,10 @@ function App() {
         <ProjectCase
           id="nana-studio"
           index="01"
-          title="NANA Studio"
-          subtitle="Photography Portfolio & Client Management Platform"
-          description="Sistema web diseñado para optimizar la gestión de un estudio creativo. Incorpora un portafolio profesional, administración de clientes y proyectos, galerías privadas, seguimiento del estado de los trabajos, control de descargas e integración con servicios en la nube para el almacenamiento de fotografías y videos."
-          tags={['Web Design', 'Dashboard', 'Branding']}
+          title={t('projectCase.title')}
+          subtitle={t('projectCase.subtitle')}
+          description={t('projectCase.description')}
+          tags={t('projectCase.tags')}
           images={[nanaLanding, nanaDashboard]}
           accent="#5c1a1f"
         />

@@ -1,0 +1,41 @@
+.toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+  cursor: pointer;
+  gap: 0;
+}
+
+.option {
+  position: relative;
+  z-index: 1;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  padding: 6px 10px;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.active {
+  color: var(--bg-deep);
+}
+
+.slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  background: var(--gold);
+  border-radius: 999px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}

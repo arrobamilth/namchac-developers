@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react'
+import { useLanguage } from '../i18n/index.jsx'
+import LanguageToggle from './LanguageToggle.jsx'
 import styles from './Header.module.css'
 
-const LINKS = [
-  { n: '01', href: '#home', label: 'Home' },
-  { n: '02', href: '#projects', label: 'Projects' },
-  { n: '03', href: '#about', label: 'About' },
-  { n: '04', href: '#contact', label: 'Contact' },
-]
-
 export default function Header() {
+  const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+
+  const LINKS = [
+    { n: '01', href: '#home', label: t('nav.home') },
+    { n: '02', href: '#projects', label: t('nav.projects') },
+    { n: '03', href: '#about', label: t('nav.about') },
+    { n: '04', href: '#contact', label: t('nav.contact') },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -33,17 +36,20 @@ export default function Header() {
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
         <div className={`container ${styles.bar}`}>
           <div className={styles.actions}>
+            <LanguageToggle />
             <a href="#contact" className={styles.cta}>
-              Start a project
+              {t('header.startProject')}
             </a>
             <button
               type="button"
               className={styles.toggle}
-              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-label={open ? t('header.close') : t('header.menu')}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
-              <span className={styles.toggleLabel}>{open ? 'Close' : 'Menu'}</span>
+              <span className={styles.toggleLabel}>
+                {open ? t('header.close') : t('header.menu')}
+              </span>
               <span className={`${styles.toggleIcon} ${open ? styles.toggleIconOpen : ''}`}>
                 <span />
                 <span />
@@ -70,7 +76,7 @@ export default function Header() {
         </nav>
 
         <div className={styles.overlayFooter}>
-          <a href="mailto:hello@namchac.studio">hello@namchac.studio</a>
+          <a href="mailto:namchacfilms@gmail.com">namchacfilms@gmail.com</a>
           <div className={styles.overlaySocials}>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
               Instagram
