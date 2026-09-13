@@ -30,21 +30,17 @@ export default {
   about: {
     kicker: 'Sobre el estudio',
     heading:
-      'Parte atelier, parte laboratorio — creamos trabajo digital con alma artesanal.',
+      'Parte atelier, parte laboratorio — creamos soluciones que cumplan tus expectativas.',
     lede:
-      'NamChac Digital Craft Studio combina instintos de ilustración con pensamiento de producto. Cada marca, página y pixel comienza como un boceto antes de convertirse en un sistema — para que el trabajo siga vivo, con textura, y sea inconfundiblemente hecho a mano.',
+      'NamChac Digital Studio es un estudio enfocado en el desarrollo de soluciones de software, en donde hacemos que tus ideas se conviertan en un producto real. Solo necesitas la iniciativa, nosotros lo hacemos realidad. Somos un equipo pequeño, y eso nos permite ofrecerte un trato cercano y personalizado: entendiendo tu negocio y priorizando tus necesidades. Tu pones la idea, nosotros la materializamos.',
     pillars: [
       {
-        title: 'Marca',
-        text: 'Identidades con voz — marcas, paletas y sistemas construidos para ser reconocidos, no solo vistos.',
+        title: 'Desarrollo',
+        text: 'Nos especializamos en desarrollar soluciones de software que estén acorde a tu idea, negocio y necesidades. Cada solución lleva consigo el compromiso de que cumpla con tus expectativas.',
       },
       {
-        title: 'Ilustración',
-        text: 'Arte original de personajes y editorial que le da a un proyecto una cara que la gente recuerde.',
-      },
-      {
-        title: 'Web',
-        text: 'Interfaces que se mueven como la marca detrás de ellas — rápidas, consideradas, un poco inesperadas.',
+        title: 'Diseño',
+        text: 'Nos ecargamos de que cada solución plasme lo que tu idea quiere transmitir. No solo es crear una solución funcional, sino también un diseño que impacte y llene tus expectativas.',
       },
     ],
   },
