@@ -22,6 +22,7 @@ export default function ProjectSlider() {
       tags: t('projectCase.NanaStudio.tags'),
       images: [nanaLanding, nanaDashboard],
       accent: '#5c1a1f',
+      url: 'https://vercel.com/',
     },
     {
       id: 'bio-earth',
@@ -32,6 +33,7 @@ export default function ProjectSlider() {
       tags: t('projectCase.BioEarth.tags'),
       images: [bioearhLanding, bioearhDashboard],
       accent: '#1a3d5c',
+      url: 'https://bioearth.com.co/',
     },
   ]
 
@@ -60,7 +62,9 @@ export default function ProjectSlider() {
     touchEndX.current = e.touches[0].clientX
   }, [])
 
-  const handleTouchEnd = useCallback(() => {
+  const handleTouchEnd = useCallback((e) => {
+    const target = e.target
+    if (target.closest('a') || target.closest('button')) return
     const delta = touchStartX.current - touchEndX.current
     if (Math.abs(delta) > 50) {
       if (delta > 0) next()
@@ -96,7 +100,19 @@ export default function ProjectSlider() {
         <div key={p.id} className={getSlideClass(i)}>
           <div className={`container ${styles.header}`}>
             <p className="kicker">{`${t('projectCase.project')} ${p.index}`}</p>
-            <h2 className={styles.title}>{p.title}</h2>
+            <div className={styles.titleRow}>
+              <h2 className={styles.title}>{p.title}</h2>
+              {p.url && (
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.visitBtn}
+                >
+                  {t('projectCase.visit')}
+                </a>
+              )}
+            </div>
             <p className={styles.subtitle}>{p.subtitle}</p>
             {p.description && <p className={styles.description}>{p.description}</p>}
             {p.tags && p.tags.length > 0 && (
@@ -154,6 +170,12 @@ export default function ProjectSlider() {
             aria-label={`Go to project ${i + 1}`}
           />
         ))}
+      </div>
+
+      <div className={styles.swipeHint}>
+        <span className={styles.swipeIcon}>←</span>
+        <span className={styles.swipeText}>{t('projectCase.swipe')}</span>
+        <span className={styles.swipeIcon}>→</span>
       </div>
     </section>
   )

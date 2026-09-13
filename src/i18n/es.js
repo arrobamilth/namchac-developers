@@ -21,21 +21,23 @@ export default {
   },
   projectCase: {
     project: 'Proyecto',
+    visit: 'Visitar',
+    swipe: 'Desliza',
     NanaStudio: {
       title: 'NANA Studio',
       subtitle: 'Portafolio de Fotografía y Plataforma de Gestión de Clientes',
       description:
       'Sistema web diseñado para optimizar la gestión de un estudio creativo. Incorpora un portafolio profesional, administración de clientes y proyectos, galerías privadas, seguimiento del estado de los trabajos, control de descargas e integración con servicios en la nube para el almacenamiento de fotografías y videos.',
       tags: ['Diseño Web', 'Panel de control', 'Estrategia de marca'],
-    }, 
+    },
     BioEarth: {
       title: 'BioEarth',
-      subtitle: 'Sitio web y panel de administración',
+      subtitle: 'Sitio web y Panel de Administración',
       description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam nulla quod labore pariatur voluptatum quae nisi tenetur eum alias, saepe repudiandae placeat similique nesciunt! Aliquid exercitationem animi consequatur ut?.',
       tags: ['Diseño Web', 'Panel de control', 'Sitio Web'],
     }
-    
+
   },
   about: {
     kicker: 'Sobre el estudio',

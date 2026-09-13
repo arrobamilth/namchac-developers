@@ -16,11 +16,18 @@
   position: relative;
   z-index: 2;
   display: block;
-  width: clamp(280px, 78vw, 980px);
+  width: clamp(280px, 78vw, 920px);
   height: auto;
   margin: 0 auto;
   user-select: none;
   filter: drop-shadow(0 24px 46px rgba(0, 0, 0, 0.45));
+}
+
+/* Container for manifesto + badge on mobile */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .manifesto {
@@ -128,6 +135,18 @@
 
 @media (max-width: 640px) {
   .hero {
+    padding-top: clamp(48px, 8vh, 80px);
+    padding-bottom: 0;
+  }
+
+  .wordmark {
+    width: 90vw;
+  }
+
+  .bottom {
+    margin-top: auto;
+    flex-direction: column;
+    gap: 18px;
     padding-bottom: 36px;
   }
 
@@ -138,7 +157,7 @@
     max-width: none;
     width: 100%;
     padding-inline: var(--edge);
-    margin: 18px 0 0;
+    margin: 0;
     left: auto;
     right: auto;
     bottom: auto;

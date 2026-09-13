@@ -21,13 +21,15 @@ export default {
   },
   projectCase: {
     project: 'Project',
+    visit: 'Visit',
+    swipe: 'Swipe',
     NanaStudio: {
       title: 'NANA Studio',
       subtitle: 'Photography Portfolio and Client Management Platform',
       description:
       'A web-based system designed to streamline the management of a creative studio. It includes a professional portfolio, client and project management, private galleries, job status tracking, download control, and integration with cloud services for storing photos and videos.',
       tags: ['Web Design', 'Dashboard', 'Branding'],
-    }, 
+    },
     BioEarth: {
       title: 'BioEarth',
       subtitle: 'Website and Admin Panel',

@@ -11,7 +11,6 @@
   color: var(--cream);
   border-radius: 32px 32px 0 0;
   box-shadow: 0 -40px 60px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
   touch-action: pan-y;
 }
 
@@ -44,10 +43,36 @@
   color: var(--gold);
 }
 
-.title {
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.title {
   font-size: clamp(2.4rem, 6vw, 5rem);
   color: var(--cream);
+}
+
+.visitBtn {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+.visitBtn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-deep);
 }
 
 .subtitle {
@@ -184,6 +209,11 @@
   width: 48px;
 }
 
+/* Swipe hint (hidden on desktop) */
+.swipeHint {
+  display: none;
+}
+
 /* Tablet */
 @media (max-width: 860px) {
   .images {
@@ -198,39 +228,59 @@
 /* Mobile */
 @media (max-width: 640px) {
   .slider {
-    padding-block: clamp(60px, 8vh, 100px);
+    padding-block: clamp(32px, 5vh, 48px);
   }
 
   .slide {
-    gap: clamp(28px, 4vh, 40px);
+    gap: clamp(20px, 3vh, 28px);
   }
 
-  .navArrow {
-    width: 40px;
-    height: 40px;
-    background: rgba(13, 23, 21, 0.8);
+  .titleRow {
+    margin-top: 10px;
+    gap: 8px;
   }
 
-  .navArrow svg {
-    width: 16px;
-    height: 16px;
+  .title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
-  .navArrowLeft {
-    left: 8px;
+  .visitBtn {
+    font-size: 0.65rem;
+    padding: 4px 10px;
   }
 
-  .navArrowRight {
-    right: 8px;
+  .subtitle {
+    font-size: 0.95rem;
+    margin-top: 12px;
+  }
+
+  .description {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-top: 10px;
+  }
+
+  .tags {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 5px 12px;
   }
 
   .panel {
-    padding: clamp(16px, 4vw, 24px);
+    padding: clamp(12px, 3vw, 16px);
     border-radius: 16px;
   }
 
+  .navArrow {
+    display: none;
+  }
+
   .dots {
-    bottom: clamp(16px, 3vh, 32px);
+    bottom: clamp(48px, 7vh, 64px);
     gap: 8px;
   }
 
@@ -241,5 +291,36 @@
 
   .dotActive {
     width: 36px;
+  }
+
+  .swipeHint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    bottom: clamp(16px, 3vh, 32px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--cream-dim);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .swipeIcon {
+    display: inline-block;
+    animation: swipeBounce 1.5s ease-in-out infinite;
+  }
+
+  .swipeIcon:last-child {
+    animation-direction: reverse;
+  }
+}
+
+@keyframes swipeBounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
   }
 }

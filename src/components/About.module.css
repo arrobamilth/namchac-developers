@@ -9,7 +9,6 @@
   padding-block: clamp(80px, 12vh, 140px);
   border-radius: 32px 32px 0 0;
   box-shadow: 0 -40px 60px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
 }
 
 .inner {
@@ -76,5 +75,40 @@
 @media (max-width: 760px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    min-height: auto;
+    overflow: visible;
+    padding-block: clamp(40px, 6vh, 60px);
+    align-items: flex-start;
+  }
+
+  .inner {
+    gap: clamp(32px, 6vh, 48px);
+  }
+
+  .heading {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    max-width: none;
+  }
+
+  .lede {
+    font-size: 0.95rem;
+    margin-top: 18px;
+  }
+
+  .card {
+    padding: clamp(20px, 4vw, 28px) clamp(16px, 4vw, 24px);
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 0.88rem;
   }
 }
