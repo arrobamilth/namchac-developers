@@ -1,0 +1,245 @@
+.slider {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg);
+  padding-block: clamp(80px, 12vh, 140px);
+  color: var(--cream);
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -40px 60px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+/* Slide transitions */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(40px, 6vh, 64px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slideActive {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.slideLeft {
+  transform: translateX(-30px);
+}
+
+.header :global(.kicker) {
+  color: var(--gold);
+}
+
+.title {
+  margin-top: 14px;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  color: var(--cream);
+}
+
+.subtitle {
+  margin-top: 16px;
+  max-width: 46ch;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--cream);
+}
+
+.description {
+  margin-top: 14px;
+  max-width: 58ch;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--cream-dim);
+}
+
+.tags {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 7px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.panel {
+  background: var(--accent);
+  border-radius: 24px;
+  padding: clamp(24px, 5vw, 56px);
+}
+
+.images {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(20px, 3vw, 36px);
+  align-items: center;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.images > .image:nth-child(2) {
+  transform: translateY(clamp(20px, 4vw, 48px));
+}
+
+/* Navigation arrows */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(13, 23, 21, 0.6);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--cream);
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.navArrow:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-deep);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.navArrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.navArrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.navArrowLeft {
+  left: clamp(12px, 3vw, 32px);
+}
+
+.navArrowRight {
+  right: clamp(12px, 3vw, 32px);
+}
+
+/* Dot indicators */
+.dots {
+  position: absolute;
+  bottom: clamp(24px, 4vh, 48px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+.dot:hover {
+  background: var(--cream-dim);
+}
+
+.dotActive {
+  background: var(--gold);
+  width: 48px;
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  .images {
+    grid-template-columns: 1fr;
+  }
+
+  .images > .image:nth-child(2) {
+    transform: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .slider {
+    padding-block: clamp(60px, 8vh, 100px);
+  }
+
+  .slide {
+    gap: clamp(28px, 4vh, 40px);
+  }
+
+  .navArrow {
+    width: 40px;
+    height: 40px;
+    background: rgba(13, 23, 21, 0.8);
+  }
+
+  .navArrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .navArrowLeft {
+    left: 8px;
+  }
+
+  .navArrowRight {
+    right: 8px;
+  }
+
+  .panel {
+    padding: clamp(16px, 4vw, 24px);
+    border-radius: 16px;
+  }
+
+  .dots {
+    bottom: clamp(16px, 3vh, 32px);
+    gap: 8px;
+  }
+
+  .dot {
+    width: 24px;
+    height: 3px;
+  }
+
+  .dotActive {
+    width: 36px;
+  }
+}
