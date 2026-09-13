@@ -9,7 +9,14 @@ export default function Footer() {
       <div className={`container ${styles.inner}`}>
         <span className={styles.logo}>NamChac</span>
         <p>&copy; {new Date().getFullYear()} NamChac Digital Craft Studio. {t('footer.rights')}</p>
-        <a href="#home" className={styles.top}>
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault()
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
+          className={styles.top}
+        >
           {t('footer.backToTop')}
         </a>
       </div>
