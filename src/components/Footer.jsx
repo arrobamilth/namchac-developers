@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
         <span className={styles.logo}>NamChac</span>
-        <p>&copy; {new Date().getFullYear()} NamChac Digital Craft Studio. {t('footer.rights')}</p>
+        <p>&copy; {new Date().getFullYear()} NamChac Digital Studio. {t('footer.rights')}</p>
         <a
           href="#home"
           onClick={(e) => {

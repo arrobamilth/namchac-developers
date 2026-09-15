@@ -34,7 +34,7 @@ export default {
       title: 'BioEarth',
       subtitle: 'Sitio web y Panel de Administración',
       description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam nulla quod labore pariatur voluptatum quae nisi tenetur eum alias, saepe repudiandae placeat similique nesciunt! Aliquid exercitationem animi consequatur ut?.',
+      'BIOEARTH es un Centro de Investigación y Desarrollo Tecnológico enfocado en soluciones sostenibles para el sector ambiental, agroindustrial y territorial. Se desarrolló una plataforma web institucional para comunicar sus proyectos, capacidades y líneas de investigación mediante una experiencia digital moderna, responsive e interactiva.',
       tags: ['Diseño Web', 'Panel de control', 'Sitio Web'],
     }
 

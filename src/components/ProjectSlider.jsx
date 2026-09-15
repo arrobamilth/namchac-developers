@@ -9,8 +9,8 @@ import styles from './ProjectSlider.module.css'
 export default function ProjectSlider() {
   const { t } = useLanguage()
   const [active, setActive] = useState(0)
-  const touchStartX = useRef(0)
-  const touchEndX = useRef(0)
+  const touchStartX = useRef(null)
+  const touchTriggered = useRef(false)
 
   const projects = [
     {
@@ -22,7 +22,7 @@ export default function ProjectSlider() {
       tags: t('projectCase.NanaStudio.tags'),
       images: [nanaLanding, nanaDashboard],
       accent: '#5c1a1f',
-      url: 'https://vercel.com/',
+      url: 'https://nana-studio-five.vercel.app/',
     },
     {
       id: 'bio-earth',
@@ -55,24 +55,30 @@ export default function ProjectSlider() {
   }, [active, total, goTo])
 
   const handleTouchStart = useCallback((e) => {
-    touchStartX.current = e.touches[0].clientX
-  }, [])
-
-  const handleTouchMove = useCallback((e) => {
-    touchEndX.current = e.touches[0].clientX
-  }, [])
-
-  const handleTouchEnd = useCallback((e) => {
     const target = e.target
-    if (target.closest('a') || target.closest('button')) return
-    const delta = touchStartX.current - touchEndX.current
+    touchStartX.current =
+      target.closest('a') || target.closest('button') ? null : e.touches[0].clientX
+    touchTriggered.current = false
+  }, [])
+
+  // Trigger on touchmove (not touchend): many mobile browsers claim the
+  // gesture for native vertical scrolling as soon as there's any vertical
+  // movement and fire touchcancel instead of touchend, so waiting for
+  // touchend made the swipe silently do nothing on real phones.
+  const handleTouchMove = useCallback((e) => {
+    if (touchStartX.current === null || touchTriggered.current) return
+    const delta = touchStartX.current - e.touches[0].clientX
     if (Math.abs(delta) > 50) {
+      touchTriggered.current = true
       if (delta > 0) next()
       else prev()
     }
-    touchStartX.current = 0
-    touchEndX.current = 0
   }, [next, prev])
+
+  const handleTouchEnd = useCallback(() => {
+    touchStartX.current = null
+    touchTriggered.current = false
+  }, [])
 
   useEffect(() => {
     const onKey = (e) => {
@@ -95,6 +101,7 @@ export default function ProjectSlider() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
     >
       {projects.map((p, i) => (
         <div key={p.id} className={getSlideClass(i)}>

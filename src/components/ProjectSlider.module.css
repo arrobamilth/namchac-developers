@@ -2,12 +2,16 @@
   position: sticky;
   top: 0;
   z-index: 3;
-  min-height: 100svh;
+  height: 100svh; /* fixed, not min-height: a min-height lets this box grow
+    taller than the viewport when content needs more room, and since it's
+    sticky-pinned at top:0 the extra bottom part becomes permanently
+    unreachable. A fixed height keeps the section exactly one screen tall;
+    .slide below scrolls internally if its content still doesn't fit. */
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: var(--bg);
-  padding-block: clamp(60px, 8vh, 100px);
+  padding-block: clamp(28px, 4vh, 64px);
   color: var(--cream);
   border-radius: 32px 32px 0 0;
   box-shadow: 0 -40px 60px rgba(0, 0, 0, 0.4);
@@ -20,12 +24,30 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: clamp(28px, 4vh, 40px);
+  justify-content: safe center; /* falls back to start-alignment instead of
+    hiding the top half when content overflows the scroll area */
+  gap: clamp(14px, 2.2vh, 28px);
   opacity: 0;
   pointer-events: none;
   transform: translateX(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+
+.slide::-webkit-scrollbar {
+  width: 6px;
+}
+
+.slide::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+.slide::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .slideActive {
@@ -33,6 +55,9 @@
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
+  flex: 1 1 auto;
+  min-height: 0; /* let flex shrink it below content size so overflow-y:auto
+    can actually kick in instead of forcing the row/section to grow */
 }
 
 .slideLeft {
@@ -76,7 +101,7 @@
 }
 
 .subtitle {
-  margin-top: 16px;
+  margin-top: 10px;
   max-width: 46ch;
   font-size: 1rem;
   font-weight: 400;
@@ -84,7 +109,7 @@
 }
 
 .description {
-  margin-top: 14px;
+  margin-top: 8px;
   max-width: 58ch;
   font-size: 0.92rem;
   line-height: 1.65;
@@ -92,7 +117,7 @@
 }
 
 .tags {
-  margin-top: 22px;
+  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -126,6 +151,9 @@
 .image {
   display: block;
   width: 100%;
+  height: clamp(110px, 20vw, 200px);
+  object-fit: cover;
+  object-position: top;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
 }

@@ -81,12 +81,6 @@ export default function Header() {
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
               Instagram
             </a>
-            <a href="https://behance.net" target="_blank" rel="noreferrer">
-              Behance
-            </a>
-            <a href="https://dribbble.com" target="_blank" rel="noreferrer">
-              Dribbble
-            </a>
           </div>
         </div>
       </div>

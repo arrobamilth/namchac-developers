@@ -2,18 +2,43 @@
   position: sticky;
   top: 0;
   z-index: 4;
-  min-height: 100svh;
+  height: 100svh; /* fixed, not min-height: a min-height let this box grow
+    taller than the viewport when the intro + cards needed more room, and
+    since the section is sticky-pinned at top:0 the part that stuck out
+    below became permanently unreachable. NOTE: overflow-y was tried
+    directly on this sticky element and broke the sticky pin itself
+    (mixing position:sticky + its own overflow:auto is unreliable) — the
+    scrollable box has to be an inner, non-sticky wrapper instead, same as
+    the ProjectSlider fix (.slider stays fixed, .slide scrolls). */
   display: flex;
   align-items: center;
   background: var(--bg);
-  padding-block: clamp(80px, 12vh, 140px);
+  padding-block: clamp(56px, 8vh, 100px);
   border-radius: 32px 32px 0 0;
   box-shadow: 0 -40px 60px rgba(0, 0, 0, 0.4);
 }
 
 .inner {
   display: grid;
-  gap: clamp(48px, 8vh, 80px);
+  gap: clamp(28px, 5vh, 48px);
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+
+.inner::-webkit-scrollbar {
+  width: 6px;
+}
+
+.inner::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+.inner::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .intro :global(.kicker) {
@@ -80,14 +105,16 @@
 
 @media (max-width: 640px) {
   .about {
+    height: auto;
     min-height: auto;
-    overflow: visible;
     padding-block: clamp(40px, 6vh, 60px);
     align-items: flex-start;
   }
 
   .inner {
     gap: clamp(32px, 6vh, 48px);
+    max-height: none;
+    overflow: visible;
   }
 
   .heading {

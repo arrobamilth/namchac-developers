@@ -34,7 +34,7 @@ export default {
       title: 'BioEarth',
       subtitle: 'Website and Admin Panel',
       description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam nulla quod labore pariatur voluptatum quae nisi tenetur eum alias, saepe repudiandae placeat similique nesciunt! Aliquid exercitationem animi consequatur ut?.',
+      'BIOEARTH is a Research and Technological Development Center focused on sustainable solutions for the environmental, agro-industrial, and territorial sectors. We built an institutional web platform to communicate its projects, capabilities, and research lines through a modern, responsive, and interactive digital experience.',
       tags: ['Web Design', 'Dashboard', 'Web Site'],
     }
   },
